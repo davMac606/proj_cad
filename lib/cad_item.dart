@@ -31,6 +31,7 @@ class _MyCadItemState extends State<MyCadItem> {
             height: 20,
           ),
           TextField(
+            controller: cntNomeItem,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Nome do Item',
@@ -40,6 +41,7 @@ class _MyCadItemState extends State<MyCadItem> {
             height: 20,
           ),
           TextField(
+            controller: cntPreco,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Preço',
@@ -49,6 +51,7 @@ class _MyCadItemState extends State<MyCadItem> {
             height: 20,
           ),
           TextField(
+            controller: cntQuantidade,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Quantidade',
