@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:proj_cad/item.dart';
+import 'package:proj_cad/item_repository.dart';
 
 class MyCadItem extends StatefulWidget {
   const MyCadItem({super.key});
@@ -18,23 +20,23 @@ class _MyCadItemState extends State<MyCadItem> {
   TextEditingController cntNomeItem = TextEditingController();
   TextEditingController cntPreco = TextEditingController();
   TextEditingController cntQuantidade = TextEditingController();
+  ItemRepository itR = ItemRepository();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
           child: Column(
         children: [
-           SizedBox(
+          SizedBox(
             height: 20,
           ),
-
           TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Nome do Item',
             ),
           ),
-           SizedBox(
+          SizedBox(
             height: 20,
           ),
           TextField(
@@ -43,7 +45,7 @@ class _MyCadItemState extends State<MyCadItem> {
               labelText: 'Preço',
             ),
           ),
-           SizedBox(
+          SizedBox(
             height: 20,
           ),
           TextField(
@@ -52,7 +54,7 @@ class _MyCadItemState extends State<MyCadItem> {
               labelText: 'Quantidade',
             ),
           ),
-           SizedBox(
+          SizedBox(
             height: 20,
           ),
           ElevatedButton(
@@ -61,6 +63,10 @@ class _MyCadItemState extends State<MyCadItem> {
                   nomeItem = cntNomeItem.text;
                   preco = double.parse(cntPreco.text);
                   quantidade = int.parse(cntQuantidade.text);
+                  Item it = Item(nomeItem, preco, quantidade);
+                  itR.add(it);
+                  itR.printItem();
+                  setState(() {});
                 });
               },
               child: Text("Cadastrar Item")),

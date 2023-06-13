@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:proj_cad/employee.dart';
+import 'package:proj_cad/employee_repository.dart';
 
 class MyCadEmp extends StatefulWidget {
   const MyCadEmp({super.key});
@@ -20,6 +22,7 @@ class _MyCadEmpState extends State<MyCadEmp> {
   TextEditingController cntNome = TextEditingController();
   TextEditingController cntIdade = TextEditingController();
   TextEditingController cntCargo = TextEditingController();
+  EmployeeRepository empR = EmployeeRepository();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +79,10 @@ class _MyCadEmpState extends State<MyCadEmp> {
                   nome = cntNome.text;
                   idade = int.parse(cntIdade.text);
                   cargo = cntCargo.text;
+                  Employee emp = Employee(nomeEmpresa, nome, idade, cargo);
+                  empR.add(emp);
+                  empR.printEmployee();
+                  setState(() {});
                 });
               },
               child: Icon(Icons.save))

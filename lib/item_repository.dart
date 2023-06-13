@@ -16,6 +16,8 @@ class ItemRepository {
   void printItem() {
     for (var i = 0; i < _itens.length; i++) {
       print(_itens[i].nomeItem);
+      print(_itens[i].preco);
+      print(_itens[i].quantidade);
     }
   }
 }

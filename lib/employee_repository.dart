@@ -16,6 +16,8 @@ class EmployeeRepository {
   void printEmployee() {
     for (var i = 0; i < _employees.length; i++) {
       print(_employees[i].nome);
+      print(_employees[i].idade);
+      print(_employees[i].cargo);
     }
   }
 }
